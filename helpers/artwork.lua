@@ -8,6 +8,7 @@ local pprint   = require("lib.pprint")
 local artwork  = {
   cached_game_ids = {},
   output_type = "box",
+  output_type_preview = "preview",  
 }
 
 
@@ -50,13 +51,16 @@ function artwork.copy_to_catalogue(platform, game)
     return
   end
   output_path = utils.strip_quotes(output_path)
-  local path = string.format("%s/%s/media/covers/%s.png", output_path, platform, game)
   local destination_folder = muos.platforms[platform]
   if not destination_folder then
     log.write("Catalogue destination folder not found")
     return
   end
 
+  -----------------------------
+  -- Copy box/cover artwork
+  -----------------------------
+  local path = string.format("%s/%s/media/covers/%s.png", output_path, platform, game) 
   local scraped_art = nativefs.newFileData(path)
   if not scraped_art then
     log.write("Scraped artwork not found")
@@ -68,7 +72,25 @@ function artwork.copy_to_catalogue(platform, game)
   if err then
     log.write(err)
   end
+  
+  -----------------------------
+  -- Copy screenshot/preview artwork
+  -----------------------------
+  path = string.format("%s/%s/media/screenshots/%s.png", output_path, platform, game)
+  scraped_art = nativefs.newFileData(path)
+  if not scraped_art then
+    log.write("Scraped screenshot artwork not found")
+  else
+    output_folder = string.format("%s/%s/%s", catalogue_path, destination_folder, artwork.output_type_preview)
+    local _, err = nativefs.write(string.format("%s/%s.png", output_folder, game), scraped_art)
+    if err then
+      log.write(err)
+    end
+  end
 
+  -----------------------------
+  -- Create text file
+  -----------------------------
   local xml = nativefs.read(string.format("%s/%s/gamelist.xml", output_path, platform))
   if xml then
     local list = gamelist.parse(xml)
