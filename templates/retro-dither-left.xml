@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <artwork>
     <output type="cover" width="640" height="480" >
-        <layer resource="screenshot" mpixels="0.7" width="640" align="left" valign="middle" opacity="50">
+        <layer resource="screenshot" mpixels="0.7" width="640" align="right" valign="middle" opacity="50">
         </layer>
-        <mask file="mask/3px_dither-left.png"/>
-        <layer resource="cover" width="120" x="-16" y="-60" valign="bottom" align="left">
+        <mask file="mask/3px_dither-left-S.png"/>
+        <layer resource="cover" width="120" x="140" y="-165" valign="bottom" align="left">
             <rounded radius="7"/>
             <stroke width="5" red="255" green="255" blue="255"/>
             <shadow distance="5" softness="5" opacity="70"/>
