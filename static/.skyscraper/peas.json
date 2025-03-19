@@ -917,6 +917,16 @@
         ],
         "scrapers": []
     },
+    "lowresnx": {
+        "aliases": [],
+        "formats": [
+            "*.zip",
+            "*.nx"
+        ],
+        "scrapers": [
+            "screenscraper"
+        ]
+    },
     "macintosh": {
         "aliases": [],
         "formats": [
@@ -2178,6 +2188,16 @@
             "screenscraper"
         ]
     },
+    "uzebox": {
+        "aliases": [],
+        "formats": [
+            "*.zip",
+            "*.uze"
+        ],
+        "scrapers": [
+            "screenscraper"
+        ]
+    },
     "vectrex": {
         "aliases": [],
         "formats": [
@@ -2224,6 +2244,16 @@
             "screenscraper"
         ]
     },
+    "vircon32": {
+        "aliases": [],
+        "formats": [
+            "*.zip",
+            "*.v32"
+        ],
+        "scrapers": [
+            "screenscraper"
+        ]
+    },
     "virtualboy": {
         "aliases": [
             "nintendo virtual boy",
@@ -2247,6 +2277,16 @@
             "mobygames",
             "screenscraper",
             "thegamesdb"
+        ]
+    },
+    "wasm4": {
+        "aliases": [],
+        "formats": [
+            "*.zip",
+            "*.wasm"
+        ],
+        "scrapers": [
+            "screenscraper"
         ]
     },
     "wii": {
