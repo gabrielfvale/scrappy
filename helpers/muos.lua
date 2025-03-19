@@ -121,6 +121,7 @@ local muos = {
     ["GCE-Vectrex"] = "vectrex",
     ["Handheld Electronic - Game and Watch"] = "gameandwatch",
     ["Java J2ME"] = "j2me",
+    ["Lowres NX"] = "lowresnx",
     ["MSX-SVI-ColecoVision-SG1000"] = "coleco",
     ["Mattel - Intellivision"] = "intellivision",
     ["Mega Duck - Cougar Boy"] = "megaduck",
