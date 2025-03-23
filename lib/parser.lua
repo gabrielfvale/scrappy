@@ -61,7 +61,7 @@ function parser.parse(line)
     elseif line_match == line_patterns[3] then -- Not found
       local game_title = string.match(line, game_title_patterns.NOT_FOUND)
       return game_title, nil, true, return_types.GAME
-	elseif line_match == line_patterns[4] then -- Match too low
+    elseif line_match == line_patterns[4] then -- Match too low
       local game_title = string.match(line, game_title_patterns.MATCH_TOO_LOW)
       return game_title, nil, true, return_types.GAME
     end
