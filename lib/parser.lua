@@ -5,11 +5,13 @@ local line_patterns = {
   "found!",
   "Skipping game",
   "not found",
+  "match too low",
   "No entries to scrape..."
 }
 local game_title_patterns = {
   FOUND = "Game '(.-)' found!",
   NOT_FOUND = "Game '(.-)' not found",
+  MATCH_TOO_LOW = "Game '(.-)' match too low",
   SKIPPED = "Skipping game '(.-)' since"
 }
 local log_patterns = {
@@ -58,6 +60,9 @@ function parser.parse(line)
       return game_title, nil, false, return_types.GAME
     elseif line_match == line_patterns[3] then -- Not found
       local game_title = string.match(line, game_title_patterns.NOT_FOUND)
+      return game_title, nil, true, return_types.GAME
+	elseif line_match == line_patterns[4] then -- Match too low
+      local game_title = string.match(line, game_title_patterns.MATCH_TOO_LOW)
       return game_title, nil, true, return_types.GAME
     end
     return "N/A", nil, true, return_types.GAME
