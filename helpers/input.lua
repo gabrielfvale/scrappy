@@ -27,8 +27,8 @@ input.joystick_mapping = {
   ["a"] = input.events.RETURN,
   ["b"] = input.events.ESC,
   ["back"] = input.events.MENU,
-  ["l1"] = input.events.PREV,
-  ["r1"] = input.events.NEXT,
+  ["leftshoulder"] = input.events.PREV,
+  ["rightshoulder"] = input.events.NEXT,
 }
 
 local cooldown_duration = 0.2
@@ -62,7 +62,7 @@ end
 
 function input.update(dt)
   if joystick then
-    for button, event in ipairs(input.joystick_mapping) do
+    for button, event in pairs(input.joystick_mapping) do
       if joystick:isGamepadDown(button) then
         trigger(event)
       end
