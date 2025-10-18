@@ -76,8 +76,7 @@ function settings:load()
       }
       + label { text = 'Platforms', icon = "folder" }
       + (component { row = true, gap = 10 }
-        + button { text = 'Rescan folders', width = 200, onClick = on_refresh_press }
-        + button { text = 'Un/check all', width = 200, onClick = on_check_all_press })
+          + button { text = 'Rescan folders', width = 200, onClick = on_refresh_press })
 
   local menu_height = menu.height
 
@@ -92,6 +91,10 @@ function settings:load()
       icon = "warn",
     }
   else
+    -- Show the "Un/check all" button here only if platforms exist
+    menu = menu + (component { row = true, gap = 10 }
+      + button { text = 'Un/check all', width = 200, onClick = on_check_all_press })
+
     menu = menu
         + (scroll_container {
             width = w_width - 20,
